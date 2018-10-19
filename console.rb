@@ -6,7 +6,7 @@ require('pry-byebug')
 
 Customer.delete_all()
 Film.delete_all()
-
+Ticket.delete_all()
 
 customer1 = Customer.new('name' => 'Angie', 'funds' => '200')
 customer1.save()
@@ -26,10 +26,20 @@ film3 = Film.new('title' => 'Churchill', 'price' => '15')
 film3.save()
 film4 = Film.new('title' => 'Halloween', 'price' => '15')
 film4.save()
-
 # film2.title = 'The Hobbit: An Unexpected Journey'
 # film2.update
 
+ticket1 = Ticket.new('film_id' => film1.id, 'customer_id' => customer2.id)
+ticket1.save()
+ticket2 = Ticket.new('film_id' => film2.id, 'customer_id' => customer1.id)
+ticket2.save()
+ticket3 = Ticket.new('film_id' => film1.id, 'customer_id' => customer3.id)
+ticket3.save()
+ticket4 = Ticket.new('film_id' => film3.id, 'customer_id' => customer4.id)
+ticket4.save()
+
+ticket1.film_id = film4.id
+ticket1.update()
 
 binding.pry
 nil
