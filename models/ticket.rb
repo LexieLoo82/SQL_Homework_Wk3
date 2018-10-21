@@ -5,6 +5,7 @@ class Ticket
 attr_reader :id
 attr_accessor :film_id, :customer_id
 
+# #Question - why add (options) etc here? how do we know it's an array?
 def initialize(options)
   @id = options['id'].to_i if options['id']
   @film_id = options['film_id'].to_i
@@ -38,6 +39,8 @@ def self.delete_all
   sql = "DELETE FROM tickets"
   SqlRunner.run(sql)
 end
+
+
 
 
 

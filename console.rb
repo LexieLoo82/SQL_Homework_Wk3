@@ -1,6 +1,7 @@
 require_relative('models/customer')
 require_relative('models/ticket')
 require_relative('models/film')
+require_relative('models/screenings')
 
 require('pry-byebug')
 
@@ -38,8 +39,21 @@ ticket3.save()
 ticket4 = Ticket.new('film_id' => film3.id, 'customer_id' => customer4.id)
 ticket4.save()
 
-ticket1.film_id = film4.id
-ticket1.update()
+
+screening1 = Screening.new('screening_time' => '8.00pm', 'film_id' => film1.id)
+screening1.save()
+screening2 = Screening.new('screening_time' => '8.30pm', 'film_id' => film2.id)
+screening2.save()
+screening3 = Screening.new('screening_time' => '9.30pm', 'film_id' => film3.id)
+screening3.save()
+
+
+# ticket1.film_id = film4.id
+# ticket1.update()
+
+# customer2.buy_tickets(film2)
+# Ticket.customers()
+
 
 binding.pry
 nil
